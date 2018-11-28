@@ -30,7 +30,6 @@
 
                             title += "<a style='margin-left: 30px' href='${pageContext.request.contextPath}/pages/" + data[i].list[j].url + "'>" + data[i].list[j].m_title + " </a>" + "<br/>";
 
-
                         }
 
                         $('#aa').accordion('add', {
