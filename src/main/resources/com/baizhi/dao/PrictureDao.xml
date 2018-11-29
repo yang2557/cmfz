@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.PrictureDao">
+    <select id="selectPricture" resultType="com.baizhi.entity.Pricture">
+        select * from pricture limit #{start},#{rows}
+    </select>
+    <select id="getCount" resultType="int">
+      select count(*) from pricture
+    </select>
+    <update id="updatePricture">
+        update pricture set status=#{status} where id=#{id}
+    </update>
+    <insert id="insert">
+        insert into pricture  values (0,#{title},#{imgPath},#{desc},'展示',SYSDATE())
+    </insert>
+    <delete id="delete">
+        delete from pricture where id=#{id}
+    </delete>
+</mapper>

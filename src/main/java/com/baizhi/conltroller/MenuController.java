@@ -17,9 +17,7 @@ public class MenuController {
     @RequestMapping("/selectAll")
     public @ResponseBody
     List<Menu> selectAll() {
-        //List<Menu> list=;
-        // System.out.println(list);
-//        session.setAttribute("list",list);
+
         return menuService.selectAll();
     }
 }

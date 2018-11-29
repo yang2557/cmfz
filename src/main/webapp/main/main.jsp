@@ -9,10 +9,12 @@
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
+    <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
     <script type="text/javascript">
-        $("#tt").tabs({
+        /*$("#tt").tabs({
             fit: true
-        });
+        });*/
         <!--菜单处理-->
         $(function () {
 
@@ -28,8 +30,7 @@
                         var title = " ";
                         for (var j = 0; j < data[i].list.length; j++) {
 
-                            title += "<a style='margin-left: 30px' href='${pageContext.request.contextPath}/pages/" + data[i].list[j].url + "'>" + data[i].list[j].m_title + " </a>" + "<br/>";
-
+                            title += "<p style='text-align: center'><a id=\"btn\" href=\"#\" class='easyui-linkbutton' onclick=\"addTabs('" + data[i].list[j].m_title + "','" + data[i].list[j].url + "','" + data[i].list[j].iconCls + "')\" data-options=\"iconCls:'icon-search'\">" + data[i].list[j].m_title + "</a></p>";
                         }
 
                         $('#aa').accordion('add', {
@@ -44,6 +45,26 @@
 
         });
 
+        function addTabs(title, url, iconCls) {
+
+            //alert(title)
+            alert(url)
+            // alert(iconCls)
+            var istrue = $("#tt").tabs("exists", title);
+            if (istrue) {
+                $("#tt").tabs("select", title);
+            } else {
+                /*添加选项卡*/
+                $('#tt').tabs('add', {
+                    title: title,
+                    //selected: true,
+                    href: "${pageContext.request.contextPath}/other/" + url,
+                    iconCls: iconCls,
+                    closable: true
+                });
+            }
+
+        }
 
     </script>
 
