@@ -23,6 +23,7 @@ public class PrictureController {
     @RequestMapping("/selectPricture")
     public @ResponseBody
     Map selectPricture(int page, int rows) {
+
         return prictureService.selectPricture(page, rows);
     }
 

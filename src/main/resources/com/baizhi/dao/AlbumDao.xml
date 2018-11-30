@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.AlbumDao">
+    <resultMap id="map" type="com.baizhi.entity.Album">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="coverlmg" column="coverlmg"></result>
+        <result property="count" column="count"></result>
+        <result property="score" column="score"></result>
+        <result property="author" column="author"></result>
+        <result property="broadCast" column="broadCast"></result>
+        <result property="brief" column="brief"></result>
+        <result property="publishDate" column="publishDate"></result>
+        <collection property="children" ofType="com.baizhi.entity.Chapter">
+            <id property="id" column="cid"></id>
+            <result property="title" column="ctitle"></result>
+            <result property="size" column="csize"></result>
+            <result property="duration" column="cduration"></result>
+            <result property="downPath" column="cdownPath"></result>
+            <result property="uploadDate" column="cuploadDate"></result>
+            <result property="aid" column="aid"></result>
+        </collection>
+    </resultMap>
+    <select id="selectBypage" resultMap="map">
+      select a.*,
+      c.id cid,c.title ctitle,c.size csize,c.duration cduration,c.downPath cdownPath,c.uploadDate cuploadDate,c.a_id aid
+      from album  a left join chapter c on a.id=c.a_id limit #{start},#{rows}
+    </select>
+    <select id="getCount" resultType="int">
+        select count(*) from album
+    </select>
+    <insert id="insert">
+        insert into album values(0,#{title},#{coverlmg},#{count},#{score},#{author},#{broadCast},#{brief},SYSDATE())
+    </insert>
+
+</mapper>
