@@ -2,7 +2,7 @@ server:
   port: 8989
   servlet:
     context-path: /cmfz
-    jsp-servlet:
+    jsp:
       init-parameters:
         development: true
 spring:
@@ -12,10 +12,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-  mvc:
-    view:
-      prefix: /
-      suffix: .jsp
       #文件上传
     encoding:
       force: true
@@ -26,6 +22,10 @@ spring:
     multipart:
       max-request-size: 200MB
       max-file-size: 20MB
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
 mybatis:
   #  type-aliases-package: com.baizhi.entity
   mapper-locations: com/baizhi/dao/*Dao.xml

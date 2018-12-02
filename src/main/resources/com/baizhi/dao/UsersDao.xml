@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.UsersDao">
+    <select id="selectCount1" resultType="int">
+        select count(*) from users where datediff(SYSDATE(),date) &lt;7
+    </select>
+    <select id="selectCount2" resultType="int">
+        select count(*) from users where datediff(SYSDATE(),date) &lt;15
+    </select>
+    <select id="selectCount3" resultType="int">
+        select count(*) from users where datediff(SYSDATE(),date) &lt;30
+    </select>
+    <select id="selectCount4" resultType="int">
+        select count(*) from users where datediff(SYSDATE(),date) &lt;90
+    </select>
+    <select id="selectCount5" resultType="int">
+        select count(*) from users where datediff(SYSDATE(),date) &lt;180
+    </select>
+</mapper>
