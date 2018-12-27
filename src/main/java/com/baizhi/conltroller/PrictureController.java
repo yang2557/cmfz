@@ -45,7 +45,7 @@ public class PrictureController {
     @RequestMapping("/insertPricture")
     public @ResponseBody
     boolean insertPricture(Pricture pricture, MultipartFile upfile, HttpServletRequest request) throws IllegalStateException, IOException {
-
+        System.out.println(pricture+"&*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         try {
             // 获取上传的文件的名字
             String fileName = upfile.getOriginalFilename();

@@ -1,5 +1,6 @@
 package com.baizhi.conltroller;
 
+import com.baizhi.service.AlbumService;
 import com.baizhi.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class UsersController {
     @Autowired
     private UsersService usersService;
+
 
     @RequestMapping("/selectCount")
     public @ResponseBody
